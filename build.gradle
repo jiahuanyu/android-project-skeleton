@@ -1,7 +1,7 @@
 buildscript {
     ext {
         com_android_tools_build_gradle_verison = "7.0.4"
-        org_jetbrains_kotlin_plugin_version = "1.6.0"
+        org_jetbrains_kotlin_plugin_version = "1.5.31"
     }
 
     repositories {
@@ -16,6 +16,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$com_android_tools_build_gradle_verison"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$org_jetbrains_kotlin_plugin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.38.1"
     }
 }
 
@@ -30,6 +31,14 @@ allprojects {
         }
         maven {
             url 'https://maven.aliyun.com/nexus/content/groups/public'
+        }
+    }
+}
+
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            force 'org.xerial:sqlite-jdbc:3.34.0'
         }
     }
 }
