@@ -19,7 +19,7 @@ import com.google.accompanist.insets.ui.TopAppBar
 
 @Composable
 fun HomePage() {
-    val viewModel: HomePageViewModel = viewModel()
+    val viewModel: HomeViewModel = viewModel()
 
     val uiState = viewModel.uiState.observeAsState()
 
@@ -58,8 +58,6 @@ fun HomePage() {
             }
         },
     )
-
-    viewModel.fetchData()
 }
 
 // 列表项
